@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF
+
+To make your *portfolio page* fully *mobile-friendly, I’ve updated the **CSS* to ensure that the layout adjusts properly for smaller screen sizes (like smartphones and tablets). This includes adjustments to the filter buttons, grid layout, text sizes, and more.
+
+Here’s the *final code, which is **optimized for mobile devices*:
+
+---
+
+### ✅ Final portfolio.html (Blue & Black + Mobile-Friendly)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfolio | The Infinity Reel</title>
@@ -12,7 +26,7 @@
   <h2>Our Portfolio</h2>
 
   <div class="filters">
-    <button data-filter="all">All</button>
+    <button data-filter="all" class="active">All</button>
     <button data-filter="feature-films">Feature Films</button>
     <button data-filter="short-films">Short Films</button>
     <button data-filter="commercials">Commercials</button>
@@ -60,13 +74,13 @@
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       const filter = btn.getAttribute('data-filter');
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
       items.forEach(item => {
         const match = filter === 'all' || item.dataset.category === filter;
         item.style.display = match ? 'block' : 'none';
       });
-
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
     });
   });
 </script>
