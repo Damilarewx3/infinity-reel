@@ -794,3 +794,54 @@ footer .social-links a {
     font-size: 16px;
   }
 }
+/* ===== Portfolio Section (Blue & Black Theme) ===== */
+.portfolio {
+  padding: 60px 20px;
+  background: linear-gradient(to right, #000000, #001f3f);
+  color: #ffffff;
+  text-align: center;
+}
+
+.portfolio h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #1e90ff;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.filters button {
+  background: #1e90ff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.filters button:hover,
+.filters button.active {
+  background: #00bfff;
+  transform: scale(1.05);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.portfolio-item {
+  background: #0b0b0b;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0
