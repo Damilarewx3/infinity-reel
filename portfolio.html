@@ -1,40 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio | The Infinity Reel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
 <section class="portfolio">
-    <h2>Our Portfolio</h2>
-    <div class="filters">
-      <button data-filter="all">All</button>
-      <button data-filter="feature-films">Feature Films</button>
-      <button data-filter="short-films">Short Films</button>
-      <button data-filter="commercials">Commercials</button>
-      <button data-filter="documentaries">Documentaries</button>
+  <h2>Our Portfolio</h2>
+
+  <div class="filters">
+    <button data-filter="all">All</button>
+    <button data-filter="feature-films">Feature Films</button>
+    <button data-filter="short-films">Short Films</button>
+    <button data-filter="commercials">Commercials</button>
+    <button data-filter="documentaries">Documentaries</button>
+  </div>
+
+  <div class="portfolio-grid">
+    <!-- Feature Film -->
+    <div class="portfolio-item" data-category="feature-films">
+      <img src="feature-film-1.jpg" alt="Feature Film 1" />
+      <div class="overlay">
+        <h3>The Last Reel</h3>
+        <p>A gripping thriller about a filmmaker's descent into madness.</p>
+        <a href="project-detail-1.html">View Project</a>
+      </div>
     </div>
-    <div class="portfolio-grid">
-      <!-- Feature Film Example -->
-      <div class="portfolio-item" data-category="feature-films">
-        <img src="feature-film-1.jpg" alt="Feature Film 1">
-        <div class="overlay">
-          <h3>The Last Reel</h3>
-          <p>A gripping thriller about a filmmaker's descent into madness.</p>
-          <a href="project-detail-1.html">View Project</a>
-        </div>
+
+    <!-- Short Film -->
+    <div class="portfolio-item" data-category="short-films">
+      <img src="short-film-1.jpg" alt="Short Film 1" />
+      <div class="overlay">
+        <h3>Echoes of Time</h3>
+        <p>A sci-fi short exploring the consequences of time travel.</p>
+        <a href="project-detail-2.html">View Project</a>
       </div>
-      <!-- Short Film Example -->
-      <div class="portfolio-item" data-category="short-films">
-        <img src="short-film-1.jpg" alt="Short Film 1">
-        <div class="overlay">
-          <h3>Echoes of Time</h3>
-          <p>A sci-fi short exploring the consequences of time travel.</p>
-          <a href="project-detail-2.html">View Project</a>
-        </div>
-      </div>
-      <!-- Commercial Example -->
-      <div class="portfolio-item" data-category="commercials">
-        <img src="commercial-1.jpg" alt="Commercial 1">
-        <div class="overlay">
-          <h3>WE GIVE THE  BEST - "The Future is Now"</h3>
-          <p></p>
-          <a href="project-detail-3.html">View Project</a>
-        </div>
-      </div>
-      <!-- Add more projects as needed -->
     </div>
-  </section>
+
+    <!-- Commercial -->
+    <div class="portfolio-item" data-category="commercials">
+      <img src="commercial-1.jpg" alt="Commercial 1" />
+      <div class="overlay">
+        <h3>The Future is Now</h3>
+        <p>We give the best in commercial storytelling.</p>
+        <a href="project-detail-3.html">View Project</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio Filter Script -->
+<script>
+  const buttons = document.querySelectorAll('.filters button');
+  const items = document.querySelectorAll('.portfolio-item');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+      items.forEach(item => {
+        const match = filter === 'all' || item.dataset.category === filter;
+        item.style.display = match ? 'block' : 'none';
+      });
+
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
