@@ -55,3 +55,25 @@
 
 </body>
 </html>
+<!-- Add at the end of <body> -->
+<script src="/assets/js/api.js" defer></script>
+<script>
+  document.getElementById('contact-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      message: e.target.message.value
+    };
+
+    const result = await handleContactSubmit(formData);
+    
+    if (result.success) {
+      alert('Message sent successfully!');
+      e.target.reset(); // Clear form
+    } else {
+      alert('Error: ' + result.error);
+    }
+  });
+</script>
