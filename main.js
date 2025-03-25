@@ -44,3 +44,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   });
 });
+// Fetch data from Django
+const fetchItems = async () => {
+  const response = await fetch('http://localhost:8000/api/items/');
+  const data = await response.json();
+  console.log(data);
+};
+
+// Post data to Django
+const createItem = async () => {
+  const response = await fetch('http://localhost:8000/api/items/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      title: 'New Item',
+      description: 'Created from frontend'
+    }),
+  });
+  const data = await response.json();
+  console.log(data);
+};
